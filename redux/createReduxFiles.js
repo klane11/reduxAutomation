@@ -63,7 +63,8 @@ function on${typeUpperFirst}${nameUpperFirst}Failed(error) {
 }
 
 export default function ${typeLowerCased}${nameUpperFirst}() {
-  return dispatch => dispatch(on${typeUpperFirst}${nameUpperFirst}Started());
+  return dispatch => { 
+    dispatch(on${typeUpperFirst}${nameUpperFirst}Started());
     return Instance.axiosInstance()
       .${requestLowerCased}('/${path}')
       .then(response => {
@@ -75,7 +76,7 @@ export default function ${typeLowerCased}${nameUpperFirst}() {
         throw error;
       });
   };
-};
+}
 `;
 }
 
